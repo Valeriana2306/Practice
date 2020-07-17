@@ -1,0 +1,15 @@
+﻿Создаем БД, потом создаем таблицы
+CREATE TABLE Venders
+(
+    "v_Id" SERIAL PRIMARY KEY,
+    "v_Name" VARCHAR(50) NOT NULL
+);
+  
+CREATE TABLE Products
+(
+    "p_Id" SERIAL PRIMARY KEY,
+    "p_Name" VARCHAR(50) NOT NULL,
+    "v_Id" INTEGER,
+    "p_Quant" INTEGER NOT NULL
+    FOREIGN KEY ("v_Id") REFERENCES Venders ("v_Id") ON DELETE CASCADE ON UPDATE CASCADE
+	);
